@@ -1,4 +1,3 @@
-set nocompatible
 filetype off " required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -8,10 +7,22 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
+" run :BundleInstall to update
+
 " my bundles here:
 "
 " original repos on github
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-endwise'
+Bundle 'scrooloose/nerdtree'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'ervandew/supertab'
+
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'bufexplorer.zip'
 
 filetype plugin indent on " required!
 syntax on
@@ -25,6 +36,7 @@ endif
 
 set ff=unix
 set ffs=unix,dos
+set nocompatible
 set backspace=indent,eol,start
 set hidden
 
