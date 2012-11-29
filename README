@@ -1,1 +1,5 @@
 My vim configuration. Using vundle for package managements
+
+To use, add this to ~/.vimrc
+
+runtime vimrc

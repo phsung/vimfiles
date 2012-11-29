@@ -18,6 +18,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'scrooloose/nerdtree'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'ervandew/supertab'
+Bundle 'kchmck/vim-coffee-script'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -81,5 +82,7 @@ nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.h
   \:!cscope -q -b -i cscope.files -f cscope.out<CR>
   \:cs reset<CR>
 
+" Nerdtree
 nmap <F8> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrows = 0
 
