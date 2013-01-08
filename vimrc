@@ -7,6 +7,9 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
+" First time install: you need to:
+" make sure .vim/bundle exists
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 " run :BundleInstall to update
 
 " my bundles here:
