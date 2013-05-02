@@ -53,12 +53,12 @@ if &term =~ "screen"
 	set t_fs=\
 endif
 set title
-
 set background=dark
-
 set modeline
-
 set t_Co=256
+" search ignore case and smartcase when uppercase letter is used
+set ic
+set scs
 
 colorscheme desert256
 
