@@ -89,3 +89,4 @@ nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.h
 nmap <F8> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows = 0
 
+let c_space_errors = 1
