@@ -90,3 +90,4 @@ nmap <F8> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows = 0
 
 let c_space_errors = 1
+let ruby_space_errors = 1
