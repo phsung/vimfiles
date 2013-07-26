@@ -22,6 +22,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'ervandew/supertab'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -91,3 +93,9 @@ let g:NERDTreeDirArrows = 0
 
 let c_space_errors = 1
 let ruby_space_errors = 1
+
+" easytag
+set tags=./tags;
+"let g:easytags_dynamic_files = 1
+let g:easytags_file = './tags'
+let g:easytags_updatetime_warn = 0
