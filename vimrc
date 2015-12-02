@@ -7,9 +7,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " First time install: you need to:
-" make sure .vim/bundle exists
+" make sure directory .vim/bundle exists
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" run :BundleInstall to update
+" run :PluginUpdate to update
 
 " my bundles here:
 "
@@ -21,8 +21,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'ervandew/supertab'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -83,7 +83,7 @@ augroup END
 
 map <F5> :!ctags -R --fields=+S .<CR>
 
-nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.cc' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
   \:!cscope -q -b -i cscope.files -f cscope.out<CR>
   \:cs reset<CR>
 
@@ -95,7 +95,12 @@ let c_space_errors = 1
 let ruby_space_errors = 1
 
 " easytag
-set tags=./tags;
+"set tags=./tags;
 "let g:easytags_dynamic_files = 1
-let g:easytags_file = './tags'
-let g:easytags_updatetime_warn = 0
+"let g:easytags_file = './tags'
+"let g:easytags_updatetime_warn = 0
+"let g:easytags_event = ['BufRead']
+"let g:easytags_auto_highlight = 0
+
+" supertab config to lose preview/scratch window that pops up on tab selection
+let g:SuperTabClosePreviewOnPopupClose = 1
