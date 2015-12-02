@@ -23,6 +23,7 @@ Plugin 'fholgado/minibufexpl.vim'
 Plugin 'ervandew/supertab'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'rstacruz/sparkup'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
 
