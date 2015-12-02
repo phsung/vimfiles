@@ -1,11 +1,10 @@
 filetype off " required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required!
+Plugin 'VundleVim/Vundle.vim'
 
 " First time install: you need to:
 " make sure .vim/bundle exists
@@ -15,21 +14,22 @@ Bundle 'gmarik/vundle'
 " my bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise'
-Bundle 'scrooloose/nerdtree'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'ervandew/supertab'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-endwise'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'ervandew/supertab'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'bufexplorer.zip'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'bufexplorer.zip'
 
+call vundle#end()
 filetype plugin indent on " required!
 syntax on
 
