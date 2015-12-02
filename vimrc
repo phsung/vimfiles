@@ -91,7 +91,8 @@ nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.cc' -o -iname '*.
 
 " Nerdtree
 nmap <F8> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrows = 0
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = 'v'
 
 let c_space_errors = 1
 let ruby_space_errors = 1
