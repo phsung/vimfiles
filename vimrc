@@ -26,6 +26,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'rstacruz/sparkup'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
+Plugin 'mileszs/ack.vim'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -34,6 +35,7 @@ Plugin 'bufexplorer.zip'
 
 call vundle#end()
 filetype plugin indent on " required!
+
 syntax on
 
 if has('gui_running')
@@ -64,6 +66,8 @@ set t_Co=256
 " search ignore case and smartcase when uppercase letter is used
 set ic
 set scs
+set wildmenu
+set lazyredraw
 
 colorscheme desert256
 
@@ -108,3 +112,14 @@ let ruby_space_errors = 1
 
 " supertab config to lose preview/scratch window that pops up on tab selection
 let g:SuperTabClosePreviewOnPopupClose = 1
+
+" affects any key map using <leader> after this
+let mapleader = ","
+
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>s :mksession!<CR>
+
+" use ack.vim for ag(the silver searcher)
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
