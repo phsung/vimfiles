@@ -1,3 +1,6 @@
+" vim: foldmethod=marker:foldlevel=0
+
+" <<< Vundle and Plugins {{{
 filetype off " required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -27,6 +30,7 @@ Plugin 'rstacruz/sparkup'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
 Plugin 'mileszs/ack.vim'
+Plugin 'altercation/vim-colors-solarized'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -36,7 +40,56 @@ Plugin 'bufexplorer.zip'
 call vundle#end()
 filetype plugin indent on " required!
 
+" }}}
+" <<< Colors {{{
+
 syntax on
+set background=dark
+" 256 color
+set t_Co=256
+colorscheme solarized
+"colorscheme desert256
+
+" }}}
+" <<< UI config {{{
+set number
+set titlestring=%t
+if &term =~ "screen"
+	set t_ts=k
+	set t_fs=\
+endif
+set title
+set modeline
+set wildmenu
+set lazyredraw
+" }}}
+" <<< Misc {{{
+
+set fileformat=unix
+set fileformats=unix,dos
+" no vi compatible (should be set anyway since vimrc exist
+set nocompatible
+set backspace=indent,eol,start
+" hide buffer on quit unless explicitely delete the buffer
+set hidden
+set smartindent
+
+" search ignore case and smartcase when uppercase char is used
+set ignorecase
+set smartcase
+
+set foldlevelstart=10
+
+" omni completion
+set ofu=syntaxcomplete#Complete
+
+let g:SuperTabDefaultCompletionType = "context"
+" supertab config to lose preview/scratch window that pops up on tab selection
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+
+" }}}
+" <<< GUI options {{{
 
 if has('gui_running')
 	set guioptions-=T "no toolbar
@@ -45,37 +98,8 @@ if has('gui_running')
 	set mouseshape=n:beam
 endif
 
-set ff=unix
-set ffs=unix,dos
-set nocompatible
-set backspace=indent,eol,start
-set hidden
-
-set number
-set smartindent
-
-set titlestring=%t
-if &term =~ "screen"
-	set t_ts=k
-	set t_fs=\
-endif
-set title
-set background=dark
-set modeline
-set t_Co=256
-" search ignore case and smartcase when uppercase letter is used
-set ic
-set scs
-set wildmenu
-set lazyredraw
-
-colorscheme desert256
-
-" omni completion
-set ofu=syntaxcomplete#Complete
-
-let g:SuperTabDefaultCompletionType = "context"
-
+" }}}
+" <<< Autogroups {{{
 augroup myfiletypes
 	" clear old autocmds in group
 	autocmd!
@@ -83,35 +107,26 @@ augroup myfiletypes
 	autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 	"
 	au FileType python setlocal tabstop=8 et sw=4 sts=4
+	" 'cindent' and no indent for case statement in switch
 	au FileType c set cindent cinoptions=:0
 augroup END
-
-"
-
-map <F5> :!ctags -R --fields=+S .<CR>
-
-nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.cc' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
-  \:!cscope -q -b -i cscope.files -f cscope.out<CR>
-  \:cs reset<CR>
-
-" Nerdtree
-nmap <F8> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = 'v'
 
 let c_space_errors = 1
 let ruby_space_errors = 1
 
-" easytag
-"set tags=./tags;
-"let g:easytags_dynamic_files = 1
-"let g:easytags_file = './tags'
-"let g:easytags_updatetime_warn = 0
-"let g:easytags_event = ['BufRead']
-"let g:easytags_auto_highlight = 0
+" }}}
+" <<< Nerdtree {{{
+nmap <F8> :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = 'v'
+" }}}
+" <<< Silver searcher {{{
 
-" supertab config to lose preview/scratch window that pops up on tab selection
-let g:SuperTabClosePreviewOnPopupClose = 1
+" use ack.vim for ag(the silver searcher)
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+" }}}
+" <<< My Key Mapping {{{
 
 " affects any key map using <leader> after this
 let mapleader = ","
@@ -120,6 +135,14 @@ let mapleader = ","
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>s :mksession!<CR>
 
-" use ack.vim for ag(the silver searcher)
-let g:ackprg = 'ag --vimgrep --smart-case'
-cnoreabbrev ag Ack
+" map <F5> :!ctags -R --fields=+S .<CR>
+
+" <F2> to open/close fold
+nnoremap <F2> za
+
+" reload cscope on F6
+nnoremap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.cc' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+  \:!cscope -q -b -i cscope.files -f cscope.out<CR>
+  \:cs reset<CR>
+
+" }}}
