@@ -167,8 +167,8 @@ let ruby_space_errors = 1
 " }}}
 " <<< Nerdtree {{{
 nmap <F8> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = 'v'
+"let g:NERDTreeDirArrowExpandable = '>'
+"let g:NERDTreeDirArrowCollapsible = 'v'
 " }}}
 " <<< My Key Mapping {{{
 
