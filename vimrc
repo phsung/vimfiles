@@ -175,15 +175,37 @@ augroup myfiletypes
     " clear old autocmds in group
     autocmd!
     " autoindent with two spaces, always expand tabs
-    autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+    autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
     "
-    au FileType python setlocal tabstop=8 et sw=4 sts=4
+    au FileType python setlocal tabstop=8 sw=4 sts=4 et
     " 'cindent' and no indent for case statement in switch
-    au FileType c set cindent cinoptions=:0
+    au FileType c,cpp call s:c_coding_style()
 augroup END
 
 let c_space_errors = 1
 let ruby_space_errors = 1
+
+function s:c_coding_style()
+    call s:c_formatting()
+    call s:linux_kernel_keywords()
+endfunction
+
+function s:c_formatting()
+    setlocal tabstop=8
+    setlocal shiftwidth=8
+    setlocal softtabstop=8
+    setlocal noexpandtab
+
+    setlocal cindent
+    setlocal cinoptions=:0,l1,g0,t0,(0
+endfunction
+
+function s:linux_kernel_keywords()
+    syn keyword cOperator likely unlikely
+    syn keyword cType u8 u16 u32 u64 s8 s16 s32 s64
+    syn keyword cType __u8 __u16 __u32 __u64 __s8 __s16 __s32 __s64
+    syn keyword cType __be16 __be32 __be64
+endfunction
 
 " }}}
 " <<< Nerdtree {{{
