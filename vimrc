@@ -135,7 +135,7 @@ endif
 " <<< Airline {{{
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "solarized"
-let g:airline_extensions = [ 'branch', 'quickfix']
+let g:airline_extensions = [ 'quickfix']
 let g:airline_mode_map = {
             \ '__' : '-',
             \ 'n'  : 'N',
@@ -151,7 +151,7 @@ let g:airline_mode_map = {
             \ }
 
 let g:airline#extensions#default#layout = [
-            \ [ 'a', 'b', 'c' ],
+            \ [ 'a', 'c' ],
             \ [ 'z' ]
             \ ]
 
@@ -163,6 +163,12 @@ endif
 " I want "space" for maxlinenr symbol
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
+
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create_left(['mode'])
+    let g:airline_section_b = airline#section#create(['branch'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 " }}}
 " <<< Autogroups {{{
 augroup myfiletypes
