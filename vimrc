@@ -66,6 +66,21 @@ if &term =~ "screen"
     " see http://tldp.org/HOWTO/Xterm-Title-3.html
     set t_ts=]0
     set t_fs=\
+    set mouse=a
+    map <LeftMouse> <nop>
+    map <A-LeftMouse> <nop>
+    map <C-LeftMouse> <nop>
+    map <S-LeftMouse> <nop>
+    map <LeftDrag> <nop>
+    map <LeftRelease> <nop>
+    map <MiddleMouse> <nop>
+    map <RightMouse> <nop>
+    map <A-RightMouse> <nop>
+    map <C-RightMouse> <nop>
+    map <S-RightMouse> <nop>
+    map <RightDrag> <nop>
+    map <RightRelease> <nop>
+    imap <LeftMouse> <nop>
 endif
 set title
 set modeline
