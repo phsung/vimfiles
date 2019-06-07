@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " First time install: you need to:
 " make sure directory .vim/bundle exists
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " run :PluginUpdate to update
 
 " my bundles here:
