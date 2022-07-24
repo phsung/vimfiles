@@ -1,5 +1,9 @@
 " vim: foldmethod=marker:foldlevel=0:ts=4:et:sw=4
 
+if &shell =~# 'fish$'
+	set shell=bash
+endif
+
 " <<< Vundle and Plugins {{{
 filetype off " required!
 
@@ -37,6 +41,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'rust-lang/rust.vim'
+Plugin 'khaveesh/vim-fish-syntax'
 
 " vim-scripts repos
 "Plugin 'L9'
@@ -251,9 +256,9 @@ let g:ack_autoclose = 1
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<space>
 
-" use ack.vim for ag(the silver searcher)
+" use ack.vim for ripgrep
 if executable('ag')
-    let g:ackprg = 'ag --vimgrep --smart-case'
+    let g:ackprg = 'rg --vimgrep --smart-case'
     cnoreabbrev ag Ack!
 endif
 
