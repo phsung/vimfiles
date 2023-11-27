@@ -86,6 +86,10 @@ if &term =~ "screen"
     map <RightDrag> <nop>
     map <RightRelease> <nop>
     imap <LeftMouse> <nop>
+elseif &term =~ "xterm"
+    " on mac xterm-256color is used
+    " but this should applicable to all xterm
+    set mouse=a
 endif
 set title
 set modeline
