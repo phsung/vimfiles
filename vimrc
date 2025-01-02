@@ -5,6 +5,7 @@ if &shell =~# 'fish$'
 endif
 
 " <<< Vundle and Plugins {{{
+set nocompatible
 filetype off " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -41,7 +42,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'rust-lang/rust.vim'
-Plugin 'khaveesh/vim-fish-syntax'
+Plugin 'joe-skb7/cscope-maps'
+Plugin 'blankname/vim-fish'
 
 " vim-scripts repos
 "Plugin 'L9'
