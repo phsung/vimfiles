@@ -72,6 +72,8 @@ if &term =~ "screen"
     set t_ts=]0
     set t_fs=\
     set mouse=a
+    " support mouse scroll beyond column 223
+    set ttymouse=sgr
     map <LeftMouse> <nop>
     map <A-LeftMouse> <nop>
     map <C-LeftMouse> <nop>
@@ -90,6 +92,7 @@ elseif &term =~ "xterm"
     " on mac xterm-256color is used
     " but this should applicable to all xterm
     set mouse=a
+    set ttymouse=sgr
 endif
 set title
 set modeline
@@ -97,6 +100,8 @@ set wildmenu
 set lazyredraw
 " always show the status line instead of only during split
 set laststatus=2
+" better scroll on 'wrapped' lines
+set smoothscroll
 " }}}
 " <<< Misc {{{
 
@@ -216,6 +221,12 @@ function s:linux_kernel_keywords()
     syn keyword cType __be16 __be32 __be64
 endfunction
 
+" }}}
+" <<< vimdiff {{{
+if &diff
+    map <ScrollWheelUp> <c-y>
+    map <ScrollWheelDown> <c-e>
+endif
 " }}}
 " <<< Nerdtree {{{
 nmap <F8> :NERDTreeToggle<CR>
