@@ -269,14 +269,16 @@ nnoremap <leader>c :botright copen<CR>
 
 let g:ack_autoclose = 1
 
-" do not jumt to first result automatically
+" do not jump to first result automatically
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<space>
 
+cnoreabbrev ag Ack!
 " use ack.vim for ripgrep
-if executable('ag')
+if executable('rg')
     let g:ackprg = 'rg --vimgrep --smart-case'
-    cnoreabbrev ag Ack!
+elseif executable('ag')
+    let g:ackprg = 'ag --vimgrep'
 endif
 
 " }}}
