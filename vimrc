@@ -64,6 +64,7 @@ colorscheme solarized
 
 " }}}
 " <<< UI config {{{
+set hlsearch
 set number
 set titlestring=%t
 if &term =~ "screen"
