@@ -36,6 +36,7 @@ Plugin 'rstacruz/sparkup'
 "Plugin 'xolox/vim-easytags'
 Plugin 'mileszs/ack.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -60,7 +61,9 @@ set hlsearch
 set background=dark
 " 256 color
 set t_Co=256
-colorscheme solarized
+set termguicolors
+autocmd vimenter * ++nested colorscheme solarized8
+"colorscheme solarized
 "colorscheme desert256
 
 " }}}
