@@ -286,6 +286,8 @@ let g:ack_autoclose = 1
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<space>
 
+" have both ":rg" and ":ag" command for compatibilites
+cnoreabbrev rg Ack!
 cnoreabbrev ag Ack!
 " use ack.vim for ripgrep
 if executable('rg')
