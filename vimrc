@@ -192,6 +192,14 @@ endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 " }}}
 " <<< Autogroups {{{
+
+" when vim resized, rebalance the splits
+" This happens usually after screen wake up
+augroup AutoRebalance
+    autocmd!
+    autocmd VimResized * wincmd =
+augroup END
+
 augroup myfiletypes
     " clear old autocmds in group
     autocmd!
