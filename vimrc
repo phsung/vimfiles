@@ -56,6 +56,7 @@ filetype plugin indent on " required!
 " <<< Colors {{{
 
 syntax on
+set hlsearch
 set background=dark
 " 256 color
 set t_Co=256
